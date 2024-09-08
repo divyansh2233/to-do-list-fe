@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="header">
+    <h2>Tasks</h2>
+    <button class="btn" (click)="openNewTaskModal()">New Task</button>
+    <button class="btn">Refresh</button> 
+    <input type="text" placeholder="Search" [(ngModel)]="searchQuery" (ngModelChange)="onSearchChange($event)" />
+  </div>
+  
+  <table class="task-table">
+    <thead>
+      <tr>
+        <th>Assigned To</th>
+        <th>Status</th>
+        <th>Due Date</th>
+        <th>Priority</th>
+        <th>Comments</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{ task.user }}</td>
+        <td>{{ task.status }}</td>
+        <td>{{ task.dueDate | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ task.priority }}</td>
+        <td>{{ task.description }}</td>
+        <td>
+          <button class="dropdown-btn" (click)="toggleDropdown(task)">...</button>
+          <div class="dropdown-content" *ngIf="task.showDropdown">
+            <button (click)="editTask(task)">Edit</button>
+            <button (click)="deleteTask(task)">Delete</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="pagination">
+    <button (click)="previousPage()">Prev</button>
+    <span>{{ currentPage }}</span>
+    <button (click)="nextPage()">Next</button>
+  </div>
+</div>

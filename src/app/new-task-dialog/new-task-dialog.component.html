@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>{{ isEditMode ? 'Edit Task' : 'New Task' }}</h2>
+<div mat-dialog-content>
+  <form #taskForm="ngForm">
+    <div>
+      <label for="assignedTo">Assigned To</label>
+      <select name="assignedTo" [(ngModel)]="task.assignedTo" required>
+        <!-- Options for users (replace with dynamic data if necessary) -->
+        <option *ngFor="let user of ['User 1', 'User 2', 'User 3']" [value]="user">{{ user }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="status">Status</label>
+      <select name="status" [(ngModel)]="task.status" required>
+        <option value="Not Started">Not Started</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Completed">Completed</option>
+      </select>
+    </div>
+    <div>
+      <label for="dueDate">Due Date</label>
+      <input type="date" name="dueDate" [(ngModel)]="task.dueDate" [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </div>
+    <div>
+      <label for="priority">Priority</label>
+      <select name="priority" [(ngModel)]="task.priority" required>
+        <option value="Low">Low</option>
+        <option value="Normal">Normal</option>
+        <option value="High">High</option>
+      </select>
+    </div>
+    <div>
+      <label for="description">Description</label>
+      <textarea name="description" [(ngModel)]="task.description"></textarea>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button color="primary" (click)="saveTask()">Save</button>
+</div>

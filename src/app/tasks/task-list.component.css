@@ -1,0 +1,68 @@
+.container {
+  padding: 16px;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.btn {
+  background-color: #f0c040;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+input[type="text"] {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.task-table th, .task-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.task-table th {
+  background-color: #f4f4f4;
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.dropdown-content {
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 120px;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+
+.pagination {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.pagination button {
+  background-color: #f0c040;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  margin: 0 4px;
+}
